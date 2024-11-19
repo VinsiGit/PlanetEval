@@ -3,34 +3,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the data
-data = pd.read_csv('cleaning/eval.csv')
+data = pd.read_csv('cleaning/training.csv')
 
-# Calculate the habitable zone boundaries
-data['hz_inner'] = np.sqrt(data['st_lum'] / 1.1)
-data['hz_outer'] = np.sqrt(data['st_lum'] / 0.53)
-
-# Determine if the planet is in the habitable zone
-data['in_habitable_zone'] = (data['pl_orbsmax'] >= data['hz_inner']) & (data['pl_orbsmax'] <= data['hz_outer'])
-
-# Filter planets in the habitable zone
-habitable_planets = data[data['in_habitable_zone']]
-
-# Calculate the distance from the center of the habitable zone
-habitable_planets['hz_center'] = (habitable_planets['hz_inner'] + habitable_planets['hz_outer']) / 2
-habitable_planets['distance_from_hz_center'] = np.abs(habitable_planets['pl_orbsmax'] - habitable_planets['hz_center'])
 
 # Normalize the distance for color mapping
-norm = plt.Normalize(habitable_planets['distance_from_hz_center'].min(), habitable_planets['distance_from_hz_center'].max())
-colors = plt.cm.viridis(norm(habitable_planets['distance_from_hz_center']))
+norm = plt.Normalize(0, 50)
+colors = plt.cm.viridis(norm(data['pl_esi']))
 
 # Convert RA and Dec from degrees to radians
-ra_rad = np.radians(habitable_planets['ra'])
-dec_rad = np.radians(habitable_planets['dec'])
+ra_rad = np.radians(data['ra'])
+dec_rad = np.radians(data['dec'])
 
 # Calculate Cartesian coordinates
-x = habitable_planets['sy_dist'] * np.cos(dec_rad) * np.cos(ra_rad)
-y = habitable_planets['sy_dist'] * np.cos(dec_rad) * np.sin(ra_rad)
-z = habitable_planets['sy_dist'] * np.sin(dec_rad)
+x = data['sy_dist'] * np.cos(dec_rad) * np.cos(ra_rad)
+y = data['sy_dist'] * np.cos(dec_rad) * np.sin(ra_rad)
+z = data['sy_dist'] * np.sin(dec_rad)
 
 # Display the first few Cartesian coordinates to verify conversion
 cartesian_coords = pd.DataFrame({'x': x, 'y': y, 'z': z})
