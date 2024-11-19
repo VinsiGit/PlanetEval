@@ -1,0 +1,15 @@
+pl_name : hostname + pl_letter
+disc_year: niet nodig voor habbitable
+disc_locale: ""
+disc_facility: ""
+disc_telescope: ""
+disc_instrument: ""
+pl_refname: ""
+
+
+rowupdate: lijkt niet belangerijk
+pl_pubdate: ""
+releasedate: ""
+pl_nnotes: ""
+
+pl°ndispec
