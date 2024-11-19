@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Database files
+db-data/
+pgadmin-data/
+
+# Excel opened files
+~$*.xlsx
+
 # C extensions
 *.so
 
