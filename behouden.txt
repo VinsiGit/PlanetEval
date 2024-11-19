@@ -10,8 +10,8 @@ pl_orbper
 pl_orbsmax
 pl_rade
 pl_bmasse
-rastr
-decstr
+ra
+dec
 sy_dist
 pl_eqt
 st_lum
