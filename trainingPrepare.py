@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Load the datasets
-training_df = pd.read_csv('cleaning/esi.csv')
+training_df = pd.read_csv('cleaning/training.csv')
 eval_df = pd.read_csv('cleaning/eval.csv')
 
 # Split the eval dataset into testing and evaluation sets

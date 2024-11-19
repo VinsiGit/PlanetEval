@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS system CASCADE;
+
+CREATE TABLE IF NOT EXISTS system (
+    hostname TEXT PRIMARY KEY,
+    cb_flag BOOLEAN,
+    sy_snum INTEGER,
+    sy_pnum INTEGER,
+    ra DOUBLE PRECISION,
+    dec DOUBLE PRECISION,
+    sy_dist DOUBLE PRECISION,
+    st_lum DOUBLE PRECISION,
+    st_dens DOUBLE PRECISION,
+    st_age DOUBLE PRECISION,
+    st_teff DOUBLE PRECISION
+);
