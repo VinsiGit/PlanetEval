@@ -11,7 +11,7 @@ pl_orbsmax
 pl_rade
 pl_bmasse
 ra
-desc
+dec
 sy_dist
 pl_eqt
 st_lum
